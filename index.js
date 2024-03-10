@@ -17,10 +17,11 @@
 
 const inquirer = require("inquirer");
 const fs = require("fs");
-const {triangle, circle, square} = require("./lib/shapes.js");
+const generateShapes = require("./lib/generateShapes.js");
+
 
 const questions = [
-
+    
     {
         type: "input",
         message: "Pick up to 3 characters.",
@@ -32,8 +33,9 @@ const questions = [
         name: "textColour",
     },
     {
-        type: "input",
-        message: "Pick a shape (circle, triangle, square).",
+        type: "list",
+        message: "Pick a shape.",
+        choices: ["Circle", "Triangle", "Square"],
         name: "shape",
     },
     {
@@ -43,15 +45,15 @@ const questions = [
     },
 ]
 
-function writeToFile (fileName, text) {
-    fs.writeFile(fileName, new shapes(text), 
-    (err) => err ? console.error(err) : console.log("Generated logo.svg."));
+function writeToFile (fileName, data) {
+    fs.writeFile(fileName, generateShapes(data), (err) => 
+    err ? console.error(err) : console.log("Generated logo.svg."));
 }
 
 function init() {
     inquirer.prompt(questions)
-    .then(function(text) {
-        writeToFile("logo.svg", text);
+    .then(function(data) {
+        writeToFile("logo.svg", data);
     })
     .catch(function(error) {
         console.error(error);
