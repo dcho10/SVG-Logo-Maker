@@ -1,7 +1,9 @@
+// Set up imports
 const inquirer = require("inquirer");
 const fs = require("fs");
 const generateShapes = require("./lib/generateShapes.js");
 
+// Set up prompt questions
 const questions = [
     
     {
@@ -27,11 +29,13 @@ const questions = [
     },
 ]
 
+// Created a function to collect the data and write it to a file
 function writeToFile (fileName, data) {
     fs.writeFile(fileName, generateShapes(data), (err) => 
     err ? console.error(err) : console.log("Generated logo.svg."));
 }
 
+// Created a function to process the inquirer prompt answers and write it to "logo.svg" file and to catch any errors along and log them the way
 function init() {
     inquirer.prompt(questions)
     .then(function(data) {
