@@ -5,9 +5,9 @@ https://github.com/dcho10/SVG-Logo-Maker
 ## Description
 
   
-The purpose of my app is to: Use Inquirer@8.2.4 and automatically generate a logo
+The purpose of my app is to: Use Inquirer@8.2.4 and automatically generate a SVG logo
   
-The app is intended for: Users who would like to automatically generate a logo
+The app is intended for: Users who would like to automatically generate a SVG logo
   
 The reason I created the app is: To enhance user experience and create their own logos
   
